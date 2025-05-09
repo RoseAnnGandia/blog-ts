@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.paths.json",
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "target": "ES6",
+    "types": ["node"],
+    "module": "commonjs",     
+    "outDir": "dist",      
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "tests"]
+}

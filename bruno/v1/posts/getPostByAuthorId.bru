@@ -1,0 +1,15 @@
+meta {
+  name: getPostByUserId
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{endpointV1}}/users/{{authorId}}/posts
+  body: json
+  auth: none
+}
+
+headers {
+  authorization: Bearer {{accessToken}}
+}

@@ -1,0 +1,28 @@
+meta {
+  name: signup
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{endpointV1}}/auth/signup
+  body: json
+  auth: none
+}
+
+headers {
+  authorization: Bearer {{accessToken}}
+}
+
+body:json {
+  {
+    "password": "janedoe1",
+    "email": "janedoe1@gmail.com"
+  }
+}
+
+script:post-response {
+  bru.setVar("userId", res.body._id);
+  bru.setVar("email", res.body.email);
+  bru.setVar("password", req.body.password);
+}

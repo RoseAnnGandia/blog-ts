@@ -1,0 +1,15 @@
+meta {
+  name: signout
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{endpointV1}}/auth/signout
+  body: json
+  auth: none
+}
+
+headers {
+  authorization: {{refreshToken}}
+}

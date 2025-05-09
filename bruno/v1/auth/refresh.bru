@@ -1,0 +1,15 @@
+meta {
+  name: refresh
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{endpointV1}}/auth/refresh
+  body: json
+  auth: none
+}
+
+script:post-response {
+  bru.setVar("accessToken", res.body.accessToken);
+}

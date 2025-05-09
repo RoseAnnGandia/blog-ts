@@ -1,0 +1,21 @@
+meta {
+  name: updatePost
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{endpointV1}}/posts/{{postId}}
+  body: json
+  auth: none
+}
+
+headers {
+  authorization: Bearer {{accessToken}}
+}
+
+body:json {
+  {
+    "title": "Updated Post"
+  }
+}
