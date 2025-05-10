@@ -5,9 +5,15 @@ meta {
 }
 
 get {
-  url: {{endpointV1}}/posts
+  url: {{endpointV1}}/posts?page=2&limit=3&sort=ASC
   body: json
   auth: none
+}
+
+params:query {
+  page: 2
+  limit: 3
+  sort: ASC
 }
 
 headers {

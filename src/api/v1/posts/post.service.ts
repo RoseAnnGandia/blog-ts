@@ -1,15 +1,23 @@
+import { Types } from "mongoose";
+import { Request } from "express";
+import { createError } from "@utils/custom-error";
 import { PostModel, PostType } from "./post.model";
 import { CreatePostInput, UpdatePostInput } from "./post.types";
-import { Types } from "mongoose";
-import { createError } from "@utils/custom-error";
 
 export class PostService {
   constructor(private readonly postModel: typeof PostModel) {
     this.postModel = postModel;
   }
 
-  async getAllPosts(): Promise<PostType[]> {
-    return this.postModel.find();
+  async getAllPosts(reqQuery: Request["query"]): Promise<PostType[]> {
+    const { page = 1, limit = 10, sort = "DESC" } = reqQuery;
+    const sortDirection = sort === "DESC" ? -1 : 1;
+
+    return this.postModel
+      .find()
+      .skip((Number(page) - 1) * Number(limit)) // skip previous pages' posts
+      .limit(Number(limit)) // limit the number of posts per page
+      .sort({ createdAt: sortDirection }); // sort by createdAt
   }
 
   async getPostById(id: string | Types.ObjectId): Promise<PostType> {
@@ -54,6 +62,22 @@ export class PostService {
     return {
       message: "Post deleted successfully",
     };
+  }
+
+  async getPostsByAuthorId(
+    authorId: string | Types.ObjectId,
+    reqQuery: Request["query"]
+  ): Promise<PostType[]> {
+    const { page = 1, limit = 10, sort = "DESC" } = reqQuery;
+    const sortDirection = sort === "DESC" ? -1 : 1;
+
+    const posts = await this.postModel
+      .find({ authorId })
+      .skip((Number(page) - 1) * Number(limit)) // skip previous pages' posts
+      .limit(Number(limit)) // limit the number of posts per page
+      .sort({ createdAt: sortDirection }); // sort by createdAt
+
+    return posts;
   }
 }
 

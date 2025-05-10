@@ -10,7 +10,7 @@ export class PostController {
     next: NextFunction
   ) {
     try {
-      const posts = await postService.getAllPosts();
+      const posts = await postService.getAllPosts(req.query || {});
 
       res.json(posts);
     } catch (error) {
@@ -79,6 +79,17 @@ export class PostController {
       await postService.deletePost(id);
 
       res.status(204).send();
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async getPostsByAuthorId(req: Request, res: Response, next: NextFunction) {
+    const { authorId } = req.params;
+    try {
+      const posts = await postService.getPostsByAuthorId(authorId, req.query);
+
+      res.json(posts);
     } catch (error) {
       next(error);
     }

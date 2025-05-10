@@ -21,5 +21,7 @@ const postSchema = new Schema(
   }
 );
 
+postSchema.index({ authorId: 1 });
+
 export type PostType = InferSchemaType<typeof postSchema>;
 export const PostModel = model<PostType>("Post", postSchema);

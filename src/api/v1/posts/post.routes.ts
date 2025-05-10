@@ -8,6 +8,8 @@ router.get("/", postController.getAllPosts);
 
 router.get("/:id", postController.getPostById);
 
+router.get("/authors/:authorId", postController.getPostsByAuthorId);
+
 router.post(
   "/",
   validateZodSchema(CreatePostSchema),
