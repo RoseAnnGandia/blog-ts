@@ -6,8 +6,13 @@ meta {
 
 post {
   url: {{endpointV1}}/auth/refresh
-  body: json
+  body: none
   auth: none
+}
+
+headers {
+  device-id: 12345
+  authorization: Bearer {{refreshToken}}
 }
 
 script:post-response {
