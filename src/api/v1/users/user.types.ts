@@ -1,11 +1,12 @@
 import { z } from "zod";
+import { PasswordSchema } from "../auth/auth.types";
 
 export const CreateUserSchema = z
   .object({
     firstName: z.string().optional(),
     lastName: z.string().optional(),
     email: z.string().email({ message: "Invalid email address." }),
-    password: z.string(),
+    password: PasswordSchema,
   })
   .strict();
 
