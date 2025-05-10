@@ -1,13 +1,19 @@
 meta {
-  name: getPostByUserId
+  name: getPostByAuthorId
   type: http
   seq: 3
 }
 
 get {
-  url: {{endpointV1}}/users/{{authorId}}/posts
-  body: json
+  url: {{endpointV1}}/posts/authors/{{authorId}}?page=1&limit=2&sort=ASC
+  body: none
   auth: none
+}
+
+params:query {
+  page: 1
+  limit: 2
+  sort: ASC
 }
 
 headers {
