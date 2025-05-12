@@ -3,7 +3,7 @@
   "compilerOptions": {
     "resolveJsonModule": true,
     "target": "ES6",
-    "types": ["node"],
+    "types": ["node", "jest"],
     "module": "commonjs",     
     "outDir": "dist",      
     "esModuleInterop": true,
@@ -11,6 +11,6 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "tests"]
+  "include": ["src", "tests"],
+  "exclude": ["node_modules"]
 }

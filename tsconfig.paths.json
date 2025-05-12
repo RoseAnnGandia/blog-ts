@@ -4,7 +4,7 @@
     "paths": {
       "@api/*": ["api/*"],
       "@utils/*": ["utils/*"],
-      "@middlewares/*": ["middlewares/*"],
+      "@middlewares/*": ["middlewares/*"]
     }
   }
 }

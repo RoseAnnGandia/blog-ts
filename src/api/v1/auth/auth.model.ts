@@ -15,11 +15,14 @@ const tokenSchema = new Schema({
     type: Date,
     default: () => {
       const now = new Date();
-      now.setDate(now.getDate() + 1);
-      now.setHours(now.getHours() + 8);
+      now.setDate(now.getDate() + 1); // expiration in 1 day
+      now.setHours(now.getHours() + 8); // adjust for timezone (e.g., UTC+8)
       return now;
     },
   },
 });
+
+// an index on `expiresAt` field for TTL functionality
+tokenSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });
 
 export const TokenModel = model("Token", tokenSchema);
