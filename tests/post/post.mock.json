@@ -1,0 +1,11 @@
+{
+  "createPostInput": {
+    "title": "My first post",
+    "content": "Hello, this is my first content"
+  },
+  "updatePostInput": {
+    "title": "My first post",
+    "content": "Hello, this is my first content that I would like to update"
+  },
+  "notExistPost": "68217e7b8819a66df4966f7c"
+}

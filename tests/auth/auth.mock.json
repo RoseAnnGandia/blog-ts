@@ -1,0 +1,18 @@
+{
+  "registerUserInput": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "johndoe@gmail.com",
+    "password": "Password123!"
+  },
+  "deviceId": "1234",
+  "invalidEmailInput": {
+    "name": "John Doe",
+    "email": "johndoe",
+    "password": "Password123!"
+  },
+  "notExistEmail": "notExist@gmail.com",
+  "wrongPassword": "WrongPassword123!",
+  "invalidPassword": "password123",
+  "validEmail": "juandelacruz@gmail.com"
+}
