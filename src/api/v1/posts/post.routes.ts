@@ -1,7 +1,7 @@
 import { Router } from "express";
 const router = Router();
 import { postController } from "./post.controller";
-import { validateZodSchema } from "@utils/validators/zon-schema.validator";
+import { validateZodSchema } from "@utils/validators/zod-schema.validator";
 import { CreatePostSchema, UpdatePostSchema } from "./post.types";
 
 router.get("/", postController.getAllPosts);

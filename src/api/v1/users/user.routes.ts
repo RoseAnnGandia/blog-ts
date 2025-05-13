@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { userController } from "./user.controller";
-import { validateZodSchema } from "@utils/validators/zon-schema.validator";
+import { validateZodSchema } from "@utils/validators/zod-schema.validator";
 import { UpdateUserSchema } from "./user.types";
 
 const router = Router();
