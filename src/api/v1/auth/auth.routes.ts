@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { authController } from "./auth.controller";
-import { validateZodSchema } from "@utils/validators/zon-schema.validator";
+import { validateZodSchema } from "@utils/validators/zod-schema.validator";
 import { CreateUserSchema } from "../users/user.types";
 import { ChangePassSchema, SigninSchema } from "./auth.types";
 import { validateDeviceIdHeader } from "@utils/validators/device-headers.validator";
